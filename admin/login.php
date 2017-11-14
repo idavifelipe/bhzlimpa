@@ -46,8 +46,8 @@ if( $user->is_logged_in() ){ header('Location: index.php'); }
 
 	<form action="" method="post" style="border-radius: 5px;padding: 10px;">
 	<p><label>Usuario</label><input type="text" name="username" value=""  /></p>
-	<p><label>Senha</label><input style="margin-left: 5px;" type="password" name="password" value=""  /></p>
-	<p><label></label><input style="border-radius:5px; width: 100px; margin-left:20px;" type="submit" name="submit" value="Login"  /></p>
+	<p><label>Senha</label><input style="margin-left: 25px;" type="password" name="password" value=""  /></p>
+	<p><label></label><input style="border-radius:5px; width: 100px; margin-left:120px;" type="submit" name="submit" value="Login"  /></p>
 	</form>
 
 </div>

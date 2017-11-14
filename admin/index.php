@@ -51,9 +51,9 @@ if(isset($_GET['delpost'])){
 
 	<table>
 	<tr>
-		<th>Title</th>
-		<th>Date</th>
-		<th>Action</th>
+		<th>Titulo</th>
+		<th>Data</th>
+		<th>Menu de acoes</th>
 	</tr>
 	<?php
 		try {
