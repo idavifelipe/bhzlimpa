@@ -13,6 +13,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
 
     <!-- Custom styles for this template -->
     <link href="css/blog-home.css" rel="stylesheet">

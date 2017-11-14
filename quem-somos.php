@@ -16,6 +16,7 @@
 
     <!-- Custom styles for this template -->
     <link href="css/blog-home.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
     
     <style>
         body { 
