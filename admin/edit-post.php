@@ -8,7 +8,7 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Admin - Edit Post</title>
+  <title>Admin - Editar Post</title>
   <link rel="stylesheet" href="../style/normalize.css">
   <link rel="stylesheet" href="../style/main.css">
   <script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
@@ -29,9 +29,9 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
 <div id="wrapper">
 
 	<?php include('menu.php');?>
-	<p><a href="./">Blog Admin Index</a></p>
+	<p><a href="./">Blogx</a></p>
 
-	<h2>Edit Post</h2>
+	<h2>Editar Post</h2>
 
 
 	<?php
@@ -46,19 +46,19 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
 
 		//very basic validation
 		if($postID ==''){
-			$error[] = 'This post is missing a valid id!.';
+			$error[] = 'Ops! Está faltando o id.';
 		}
 
 		if($postTitle ==''){
-			$error[] = 'Please enter the title.';
+			$error[] = 'Por favor digite o titulo.';
 		}
 
 		if($postDesc ==''){
-			$error[] = 'Please enter the description.';
+			$error[] = 'Por favor digite um descricao.';
 		}
 
 		if($postCont ==''){
-			$error[] = 'Please enter the content.';
+			$error[] = 'Por favor digite o conteudo.';
 		}
 
 		if(!isset($error)){
@@ -112,13 +112,13 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
 	<form action='' method='post'>
 		<input type='hidden' name='postID' value='<?php echo $row['postID'];?>'>
 
-		<p><label>Title</label><br />
+		<p><label>Titulo</label><br />
 		<input type='text' name='postTitle' value='<?php echo $row['postTitle'];?>'></p>
 
-		<p><label>Description</label><br />
+		<p><label>Descricao</label><br />
 		<textarea name='postDesc' cols='60' rows='10'><?php echo $row['postDesc'];?></textarea></p>
 
-		<p><label>Content</label><br />
+		<p><label>Conteudo</label><br />
 		<textarea name='postCont' cols='60' rows='10'><?php echo $row['postCont'];?></textarea></p>
 
 		<p><input type='submit' name='submit' value='Update'></p>

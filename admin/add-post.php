@@ -8,7 +8,7 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Admin - Add Post</title>
+  <title>Admin - Adicionar Post</title>
   <link rel="stylesheet" href="../style/normalize.css">
   <link rel="stylesheet" href="../style/main.css">
   <script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
@@ -29,31 +29,28 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
 <div id="wrapper">
 
 	<?php include('menu.php');?>
-	<p><a href="./">Blog Admin Index</a></p>
+	<p><a href="./">Blog</a></p>
 
-	<h2>Add Post</h2>
+	<h2>Adicionar Post</h2>
 
 	<?php
 
-	//if form has been submitted process it
 	if(isset($_POST['submit'])){
 
 		$_POST = array_map( 'stripslashes', $_POST );
 
-		//collect form data
 		extract($_POST);
 
-		//very basic validation
 		if($postTitle ==''){
-			$error[] = 'Please enter the title.';
+			$error[] = 'Por favor digite o titulo.';
 		}
 
 		if($postDesc ==''){
-			$error[] = 'Please enter the description.';
+			$error[] = 'Por favor digite a descricao.';
 		}
 
 		if($postCont ==''){
-			$error[] = 'Please enter the content.';
+			$error[] = 'Por favor digite o conteudo.';
 		}
 
 		if(!isset($error)){
@@ -91,13 +88,13 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
 
 	<form action='' method='post'>
 
-		<p><label>Title</label><br />
+		<p><label>Titulo</label><br />
 		<input type='text' name='postTitle' value='<?php if(isset($error)){ echo $_POST['postTitle'];}?>'></p>
 
-		<p><label>Description</label><br />
+		<p><label>Descricao</label><br />
 		<textarea name='postDesc' cols='60' rows='10'><?php if(isset($error)){ echo $_POST['postDesc'];}?></textarea></p>
 
-		<p><label>Content</label><br />
+		<p><label>Conteudo</label><br />
 		<textarea name='postCont' cols='60' rows='10'><?php if(isset($error)){ echo $_POST['postCont'];}?></textarea></p>
 
 		<p><input type='submit' name='submit' value='Submit'></p>

@@ -8,7 +8,7 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Admin - Edit User</title>
+  <title>Admin - Editar Usuario</title>
   <link rel="stylesheet" href="../style/normalize.css">
   <link rel="stylesheet" href="../style/main.css">
 </head>
@@ -17,43 +17,40 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
 <div id="wrapper">
 
 	<?php include('menu.php');?>
-	<p><a href="users.php">User Admin Index</a></p>
+	<p><a href="users.php">Usuario</a></p>
 
-	<h2>Edit User</h2>
+	<h2>Editar Usuario</h2>
 
 
 	<?php
 
-	//if form has been submitted process it
 	if(isset($_POST['submit'])){
 
-		//collect form data
 		extract($_POST);
 
-		//very basic validation
 		if($username ==''){
-			$error[] = 'Please enter the username.';
+			$error[] = 'Por favor digite o seu nome.';
 		}
 
 		if( strlen($password) > 0){
 
 			if($password ==''){
-				$error[] = 'Please enter the password.';
+				$error[] = 'Por favor digite a senha.';
 			}
 
 			if($passwordConfirm ==''){
-				$error[] = 'Please confirm the password.';
+				$error[] = 'Por favor confirme a senha.';
 			}
 
 			if($password != $passwordConfirm){
-				$error[] = 'Passwords do not match.';
+				$error[] = 'Senhas diferentes.';
 			}
 
 		}
 		
 
 		if($email ==''){
-			$error[] = 'Please enter the email address.';
+			$error[] = 'Por favor digite o seu email.';
 		}
 
 		if(!isset($error)){
@@ -64,7 +61,6 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
 
 					$hashedpassword = $user->password_hash($password, PASSWORD_BCRYPT);
 
-					//update into database
 					$stmt = $db->prepare('UPDATE blog_members SET username = :username, password = :password, email = :email WHERE memberID = :memberID') ;
 					$stmt->execute(array(
 						':username' => $username,
@@ -76,7 +72,6 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
 
 				} else {
 
-					//update database
 					$stmt = $db->prepare('UPDATE blog_members SET username = :username, email = :email WHERE memberID = :memberID') ;
 					$stmt->execute(array(
 						':username' => $username,
@@ -86,8 +81,6 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
 
 				}
 				
-
-				//redirect to index page
 				header('Location: users.php?action=updated');
 				exit;
 
@@ -103,7 +96,6 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
 
 
 	<?php
-	//check for any errors
 	if(isset($error)){
 		foreach($error as $error){
 			echo $error.'<br />';
@@ -125,13 +117,13 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
 	<form action='' method='post'>
 		<input type='hidden' name='memberID' value='<?php echo $row['memberID'];?>'>
 
-		<p><label>Username</label><br />
+		<p><label>Nome</label><br />
 		<input type='text' name='username' value='<?php echo $row['username'];?>'></p>
 
-		<p><label>Password (only to change)</label><br />
+		<p><label>Senha</label><br />
 		<input type='password' name='password' value=''></p>
 
-		<p><label>Confirm Password</label><br />
+		<p><label>Confirma Senha</label><br />
 		<input type='password' name='passwordConfirm' value=''></p>
 
 		<p><label>Email</label><br />

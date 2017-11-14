@@ -8,7 +8,7 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Admin - Add User</title>
+  <title>Admin - Adicionar Usuario</title>
   <link rel="stylesheet" href="../style/normalize.css">
   <link rel="stylesheet" href="../style/main.css">
 </head>
@@ -17,9 +17,9 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
 <div id="wrapper">
 
 	<?php include('menu.php');?>
-	<p><a href="users.php">User Admin Index</a></p>
+	<p><a href="users.php">Usuario</a></p>
 
-	<h2>Add User</h2>
+	<h2>Adicionar Usuario</h2>
 
 	<?php
 
@@ -31,23 +31,23 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
 
 		//very basic validation
 		if($username ==''){
-			$error[] = 'Please enter the username.';
+			$error[] = 'Por favor digite o nome.';
 		}
 
 		if($password ==''){
-			$error[] = 'Please enter the password.';
+			$error[] = 'Por favor digite a senha.';
 		}
 
 		if($passwordConfirm ==''){
-			$error[] = 'Please confirm the password.';
+			$error[] = 'Por favor confirme a senha.';
 		}
 
 		if($password != $passwordConfirm){
-			$error[] = 'Passwords do not match.';
+			$error[] = 'Senhas Diferentes.';
 		}
 
 		if($email ==''){
-			$error[] = 'Please enter the email address.';
+			$error[] = 'Por favor digite o seu e-mail.';
 		}
 
 		if(!isset($error)){
@@ -86,13 +86,13 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
 
 	<form action='' method='post'>
 
-		<p><label>Username</label><br />
+		<p><label>Nome</label><br />
 		<input type='text' name='username' value='<?php if(isset($error)){ echo $_POST['username'];}?>'></p>
 
-		<p><label>Password</label><br />
+		<p><label>Senha</label><br />
 		<input type='password' name='password' value='<?php if(isset($error)){ echo $_POST['password'];}?>'></p>
 
-		<p><label>Confirm Password</label><br />
+		<p><label>Confirmar Senha</label><br />
 		<input type='password' name='passwordConfirm' value='<?php if(isset($error)){ echo $_POST['passwordConfirm'];}?>'></p>
 
 		<p><label>Email</label><br />
